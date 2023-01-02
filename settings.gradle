@@ -10,7 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 rootProject.name = "How to write tests"
-include ':app'
+include ':basic'
+include ':shopping-list-testing'
