@@ -42,7 +42,7 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with empty field, returns error`() = runTest{
+    fun `insert shopping item with empty field, returns error`() {
         viewModel.insertShoppingItem(
             "name",
             "",
@@ -55,7 +55,7 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with too long name, returns error`()= runTest{
+    fun `insert shopping item with too long name, returns error`(){
         val name = buildString {
             for (i in 1..Constants.MAX_NAME_LENGTH + 1){
                 append("x")
@@ -73,7 +73,7 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with too long price, returns error`()= runTest{
+    fun `insert shopping item with too long price, returns error`(){
         val price = buildString {
             for (i in 1..Constants.MAX_PRICE_LENGTH + 1){
                 append(1)
@@ -91,7 +91,7 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with too high amount, returns error`()= runTest{
+    fun `insert shopping item with too high amount, returns error`(){
         viewModel.insertShoppingItem(
             "name",
             "999999999999999999999999",
@@ -104,7 +104,7 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with valid input, returns error`()= runTest{
+    fun `insert shopping item with valid input, returns error`(){
         viewModel.insertShoppingItem(
             "name",
             "5",
