@@ -1,4 +1,4 @@
-package com.fcenesiz.shopping_list_testing
+package com.fcenesiz.shopping_list_testing.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

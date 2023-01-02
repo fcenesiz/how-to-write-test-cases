@@ -2,10 +2,13 @@ package com.fcenesiz.shopping_list_testing.di
 
 import android.content.Context
 import androidx.room.Room
+import com.fcenesiz.shopping_list_testing.data.local.ShoppingDao
 import com.fcenesiz.shopping_list_testing.data.local.ShoppingItemDatabase
 import com.fcenesiz.shopping_list_testing.data.remote.PixabayAPI
 import com.fcenesiz.shopping_list_testing.other.Constants.BASE_URL
 import com.fcenesiz.shopping_list_testing.other.Constants.DATABASE_NAME
+import com.fcenesiz.shopping_list_testing.repositories.DefaultShoppingRepository
+import com.fcenesiz.shopping_list_testing.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +27,13 @@ object AppModule {
     fun provideShoppingItemDatabase(
         @ApplicationContext context: Context
     ) = Room.databaseBuilder(context, ShoppingItemDatabase::class.java, DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun provideDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayAPI
+    ) = DefaultShoppingRepository(dao, api) as ShoppingRepository
 
     @Singleton
     @Provides
