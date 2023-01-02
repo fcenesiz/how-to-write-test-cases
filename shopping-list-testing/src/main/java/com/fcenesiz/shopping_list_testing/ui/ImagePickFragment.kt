@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fcenesiz.shopping_list_testing.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ImagePickFragment : Fragment(R.layout.fragment_image_pick) {
 
     lateinit var viewModel: ShoppingViewModel

@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fcenesiz.shopping_list_testing.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddShoppingItemFragment: Fragment(R.layout.fragment_add_shopping_item) {
 
     lateinit var viewModel: ShoppingViewModel
