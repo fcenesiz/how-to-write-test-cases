@@ -58,6 +58,7 @@ dependencies {
 
     // Room
     implementation "androidx.room:room-runtime:2.4.3"
+    implementation 'com.google.ar:core:1.35.0'
     testImplementation 'junit:junit:4.12'
     kapt "androidx.room:room-compiler:2.4.3"
 
@@ -69,8 +70,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     // Coroutine Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
@@ -115,6 +116,7 @@ dependencies {
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.44'
 
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.5'
 }
 kapt {
     correctErrorTypes true

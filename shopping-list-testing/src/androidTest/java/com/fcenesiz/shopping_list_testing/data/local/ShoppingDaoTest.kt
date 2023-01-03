@@ -7,9 +7,13 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.fcenesiz.shopping_list_testing.getOrAwaitValue
+import com.fcenesiz.shopping_list_testing.launchFragmentInHiltContainer
+import com.fcenesiz.shopping_list_testing.ui.ShoppingFragment
+import com.google.ar.core.Config
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import dagger.hilt.android.testing.HiltTestApplication
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
@@ -21,9 +25,9 @@ import org.junit.runner.RunWith
 import javax.inject.Inject
 import javax.inject.Named
 
+@HiltAndroidTest
 @ExperimentalCoroutinesApi
 @SmallTest
-@HiltAndroidTest
 class ShoppingDaoTest {
 
     @get:Rule
@@ -46,6 +50,13 @@ class ShoppingDaoTest {
     @After
     fun teardown(){
         database.close()
+    }
+
+    @Test
+    fun testLaunchFragmentInHiltContainer(){
+        launchFragmentInHiltContainer<ShoppingFragment> {
+
+        }
     }
 
     @Test
