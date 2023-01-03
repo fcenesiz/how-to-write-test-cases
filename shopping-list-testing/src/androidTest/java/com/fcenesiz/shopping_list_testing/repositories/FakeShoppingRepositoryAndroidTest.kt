@@ -6,7 +6,7 @@ import com.fcenesiz.shopping_list_testing.data.local.ShoppingItem
 import com.fcenesiz.shopping_list_testing.data.remote.responses.ImageResponse
 import com.fcenesiz.shopping_list_testing.other.Resource
 
-open class FakeShoppingRepository : ShoppingRepository {
+open class FakeShoppingRepositoryAndroidTest : ShoppingRepository {
     private val shoppingItems = mutableListOf<ShoppingItem>()
 
     private val observableShoppingItems = MutableLiveData<List<ShoppingItem>>(shoppingItems)

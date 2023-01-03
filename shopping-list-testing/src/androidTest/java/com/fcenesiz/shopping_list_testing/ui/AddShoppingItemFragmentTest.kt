@@ -6,7 +6,6 @@ import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.MediumTest
 import com.fcenesiz.shopping_list_testing.launchFragmentInHiltContainer
@@ -22,8 +21,7 @@ import org.junit.Test
 import org.mockito.Mockito.*
 import com.fcenesiz.shopping_list_testing.R
 import com.fcenesiz.shopping_list_testing.getOrAwaitValue
-import com.fcenesiz.shopping_list_testing.repositories.FakeShoppingRepository
-import kotlinx.coroutines.test.runTest
+import com.fcenesiz.shopping_list_testing.repositories.FakeShoppingRepositoryAndroidTest
 
 @MediumTest
 @HiltAndroidTest
@@ -79,7 +77,7 @@ class AddShoppingItemFragmentTest {
     // Homework 2
     @Test
     fun pressBackButton_imageUrlSetToEmptyString() {
-        val testViewModel = ShoppingViewModel(FakeShoppingRepository())
+        val testViewModel = ShoppingViewModel(FakeShoppingRepositoryAndroidTest())
         val navController = mock(NavController::class.java)
         launchFragmentInHiltContainer<AddShoppingItemFragment> {
             Navigation.setViewNavController(requireView(), navController)
