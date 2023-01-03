@@ -6,9 +6,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.fcenesiz.shopping_list_testing.adapters.ImageAdapter
 import com.fcenesiz.shopping_list_testing.adapters.ShoppingItemAdapter
+import com.fcenesiz.shopping_list_testing.repositories.FakeShoppingRepositoryAndroidTest
 import javax.inject.Inject
 
-class ShoppingFragmentFactory @Inject constructor(
+class TestShoppingFragmentFactory @Inject constructor(
     private val imageAdapter: ImageAdapter,
     private val glide: RequestManager,
     private val shoppingItemAdapter: ShoppingItemAdapter
@@ -18,7 +19,10 @@ class ShoppingFragmentFactory @Inject constructor(
         return when(className){
             ImagePickFragment::class.java.name -> ImagePickFragment(imageAdapter)
             AddShoppingItemFragment::class.java.name -> AddShoppingItemFragment(glide)
-            ShoppingFragment::class.java.name -> ShoppingFragment(shoppingItemAdapter)
+            ShoppingFragment::class.java.name -> ShoppingFragment(
+                shoppingItemAdapter,
+                ShoppingViewModel(FakeShoppingRepositoryAndroidTest())
+            )
             else -> super.instantiate(classLoader, className)
         }
     }
